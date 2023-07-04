@@ -1,5 +1,5 @@
 use sysinfo::{System, SystemExt, UserExt, ProcessExt, CpuExt};
-use colored::{Colorize};
+use colored::Colorize;
 mod util;
 
 fn main(){
