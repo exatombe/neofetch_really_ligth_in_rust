@@ -1,4 +1,4 @@
-use sysinfo::{System, SystemExt, UserExt, ProcessExt, CpuExt};
+use sysinfo::{System, SystemExt, UserExt, ProcessExt, CpuExt, ComponentExt};
 use colored::Colorize;
 mod util;
 
@@ -25,6 +25,10 @@ println!("{}       {}","Uptime:".blue(), util::convert_second_to_humantime(sys.u
 println!("{}    {}","Processes:".blue(), sys.processes().len());
 println!("{}        {}","Users:".blue(),sys.users().len());
 println!("{}    {}","Boot time:".blue(), util::convert_second_to_humantime(sys.boot_time()));
+for component in sys.components() {
+    println!("{}    {}","Components:".blue(), component.label());
+}
+println!("{}   {}","Disks:".blue(), sys.disks().len());
 sys.refresh_cpu(); // Refreshing CPU information.
 for cpu in sys.cpus() {
 println!("{}          {}","CPU:".blue(),cpu.brand());
