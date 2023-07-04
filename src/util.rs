@@ -1,4 +1,4 @@
-use sysinfo::{ Uid};
+use sysinfo::Uid;
 
 pub fn option_to_string(option: Option<&str>) -> &str{
     match option {
